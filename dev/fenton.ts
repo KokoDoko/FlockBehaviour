@@ -3,19 +3,17 @@
 
 class Fenton extends GameObject{
 
+    public static instance : Fenton;
+    
     public xspeed:number = 0;
     public yspeed:number = 0;
+    
     private xtarget:number = 0;
     private ytarget:number = 0;
-    private static _instance : Fenton;
-
-    public static get instance() : Fenton {
-        if(!this._instance) this._instance = new Fenton();
-        return Fenton._instance;
-    }
-
+    
     private constructor() {
         super("fenton");
+        Fenton.instance = this;
         window.addEventListener("mousemove", (e : MouseEvent) => this.setTarget(e));
         this.xtarget = window.innerWidth/2;
         this.ytarget = window.innerHeight/2; 

@@ -24,22 +24,10 @@ class GameObject {
     set height(v) { this._height = v; }
     get facing() { return this._facing; }
     set facing(v) { this._facing = v; }
-    get div() { return this._div; }
-    set div(v) { this._div = v; }
     update() {
     }
     draw() {
         this._div.style.transform = `translate(${this._x - this._width / 2}px, ${this._y - this._height / 2}px) scale(${this._facing},1)`;
-    }
-    hasCollision(obj) {
-        return (this.x < obj.x + obj.width &&
-            this.x + this.width > obj.x &&
-            this.y < obj.y + obj.height &&
-            this.y + this.height > obj.y);
-    }
-    remove() {
-        this.div.remove();
-        Game.instance.removeGameObject(this);
     }
 }
 class Fenton extends GameObject {
@@ -49,14 +37,10 @@ class Fenton extends GameObject {
         this.yspeed = 0;
         this.xtarget = 0;
         this.ytarget = 0;
+        Fenton.instance = this;
         window.addEventListener("mousemove", (e) => this.setTarget(e));
         this.xtarget = window.innerWidth / 2;
         this.ytarget = window.innerHeight / 2;
-    }
-    static get instance() {
-        if (!this._instance)
-            this._instance = new Fenton();
-        return Fenton._instance;
     }
     update() {
         this.x += this.xspeed;
