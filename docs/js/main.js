@@ -7,9 +7,8 @@ class GameObject {
         this._facing = 1;
         this._x = window.innerWidth / 4 + Math.random() * (window.innerWidth / 2);
         this._y = window.innerHeight / 4 + Math.random() * (window.innerHeight / 2);
-        let parent = document.getElementsByTagName("game")[0];
         this._div = document.createElement(tag);
-        parent.appendChild(this._div);
+        document.body.appendChild(this._div);
         this._width = this._div.clientWidth;
         this._height = this._div.clientHeight;
         this.draw();
@@ -43,6 +42,7 @@ class Fenton extends GameObject {
         this.ytarget = window.innerHeight / 2;
     }
     update() {
+        console.log("draw");
         this.x += this.xspeed;
         this.y += this.yspeed;
         this.calculateSpeed();
@@ -62,16 +62,16 @@ class Fenton extends GameObject {
 class Game {
     constructor() {
         this.gameObjects = new Array();
-        this.gameObjects.push(Fenton.instance);
+        this.gameObjects.push(new Fenton());
         for (let i = 0; i < 10; i++) {
             this.gameObjects.push(new Sheep());
         }
         requestAnimationFrame(() => this.gameLoop());
     }
     gameLoop() {
-        for (let gameObject of this.gameObjects) {
-            gameObject.update();
-            gameObject.draw();
+        for (let g of this.gameObjects) {
+            g.update();
+            g.draw();
         }
         requestAnimationFrame(() => this.gameLoop());
     }

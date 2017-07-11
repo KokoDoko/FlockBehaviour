@@ -11,7 +11,7 @@ class Fenton extends GameObject{
     private xtarget:number = 0;
     private ytarget:number = 0;
     
-    private constructor() {
+    constructor() {
         super("fenton");
         Fenton.instance = this;
         window.addEventListener("mousemove", (e : MouseEvent) => this.setTarget(e));
@@ -20,6 +20,7 @@ class Fenton extends GameObject{
     }
 
     public update() {
+        console.log("draw");
         this.x += this.xspeed;
         this.y += this.yspeed;
 

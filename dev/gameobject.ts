@@ -25,10 +25,8 @@ class GameObject {
         this._x = window.innerWidth/4 + Math.random() * (window.innerWidth/2);
         this._y = window.innerHeight/4 + Math.random() * (window.innerHeight/2);
 
-        let parent:HTMLElement = <HTMLElement> document.getElementsByTagName("game")[0];
-
         this._div = document.createElement(tag);
-        parent.appendChild(this._div);
+        document.body.appendChild(this._div);
 
         this._width  = this._div.clientWidth;
         this._height = this._div.clientHeight;

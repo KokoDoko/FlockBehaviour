@@ -3,19 +3,19 @@ class Game {
     private gameObjects : Array<GameObject> = new Array<GameObject>();
     
     constructor() {
-        this.gameObjects.push(Fenton.instance);
+        this.gameObjects.push(new Fenton());
 
         for(let i = 0;i<10;i++){
-            this.gameObjects.push(new Sheep());
+           this.gameObjects.push(new Sheep());
         }
 
         requestAnimationFrame(() => this.gameLoop());
     }
 
     private gameLoop() : void {
-        for(let gameObject of this.gameObjects) {
-            gameObject.update();
-            gameObject.draw();
+        for(let g of this.gameObjects) {
+            g.update();
+            g.draw();
         }
 
         requestAnimationFrame(() => this.gameLoop());
