@@ -2,7 +2,7 @@
 
 ![screenshot.png](./docs/images/screenshot.png)
 
-- Fenton runs after the mouse pointer. he goes slower when he is nearer the mouse.
+- Fenton the dog runs after the mouse pointer. He runs slower when he is nearer the mouse.
 - The sheep run away from Fenton. Sheep run slower when Fenton is further away.
 
 [Play the demo](https://kokodoko.github.io/FlockBehaviour/)
