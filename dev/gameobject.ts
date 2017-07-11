@@ -1,10 +1,11 @@
 class GameObject {
+    // underscores for vars that have getters and setters
     private _x      : number = 0;
     private _y      : number = 0;
     private _width  : number = 0;
     private _height : number = 0;
     private _facing : number = 1;
-    private _div    : HTMLElement;
+    private div    : HTMLElement;
 
     public get x(): number          { return this._x;       }
     public set x(value: number)     { this._x = value;      }
@@ -25,11 +26,11 @@ class GameObject {
         this._x = window.innerWidth/4 + Math.random() * (window.innerWidth/2);
         this._y = window.innerHeight/4 + Math.random() * (window.innerHeight/2);
 
-        this._div = document.createElement(tag);
-        document.body.appendChild(this._div);
+        this.div = document.createElement(tag);
+        document.body.appendChild(this.div);
 
-        this._width  = this._div.clientWidth;
-        this._height = this._div.clientHeight;
+        this._width  = this.div.clientWidth;
+        this._height = this.div.clientHeight;
 
         this.draw();
     }
@@ -39,7 +40,7 @@ class GameObject {
     }
 
     public draw() : void {
-        this._div.style.transform = `translate(${this._x-this._width/2}px, ${this._y-this._height/2}px) scale(${this._facing},1)`;
+        this.div.style.transform = `translate(${this._x-this._width/2}px, ${this._y-this._height/2}px) scale(${this._facing},1)`;
     }
 
 }

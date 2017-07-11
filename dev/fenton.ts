@@ -20,7 +20,6 @@ class Fenton extends GameObject{
     }
 
     public update() {
-        console.log("draw");
         this.x += this.xspeed;
         this.y += this.yspeed;
 

@@ -11,7 +11,8 @@
 
 - The speed and direction of Fenton and the sheep is calculated [using vector math](https://www.mathsisfun.com/algebra/vectors.html)
 - The sheep go slower when Fenton is further by using [inverse proportion](https://www.mathsisfun.com/algebra/directly-inversely-proportional.html)
-- Sprites are placed using DOM elements and animated with [CSS transform](https://developer.mozilla.org/en/docs/Web/CSS/transform)
+- Sprites are placed using semantic DOM elements such as `<sheep>`. Use CSS to style the sprite.
+- Sprites are animated with [CSS transform](https://developer.mozilla.org/en/docs/Web/CSS/transform)
 
 ### How to run locally
 

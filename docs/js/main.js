@@ -7,10 +7,10 @@ class GameObject {
         this._facing = 1;
         this._x = window.innerWidth / 4 + Math.random() * (window.innerWidth / 2);
         this._y = window.innerHeight / 4 + Math.random() * (window.innerHeight / 2);
-        this._div = document.createElement(tag);
-        document.body.appendChild(this._div);
-        this._width = this._div.clientWidth;
-        this._height = this._div.clientHeight;
+        this.div = document.createElement(tag);
+        document.body.appendChild(this.div);
+        this._width = this.div.clientWidth;
+        this._height = this.div.clientHeight;
         this.draw();
     }
     get x() { return this._x; }
@@ -26,7 +26,7 @@ class GameObject {
     update() {
     }
     draw() {
-        this._div.style.transform = `translate(${this._x - this._width / 2}px, ${this._y - this._height / 2}px) scale(${this._facing},1)`;
+        this.div.style.transform = `translate(${this._x - this._width / 2}px, ${this._y - this._height / 2}px) scale(${this._facing},1)`;
     }
 }
 class Fenton extends GameObject {
@@ -42,7 +42,6 @@ class Fenton extends GameObject {
         this.ytarget = window.innerHeight / 2;
     }
     update() {
-        console.log("draw");
         this.x += this.xspeed;
         this.y += this.yspeed;
         this.calculateSpeed();
